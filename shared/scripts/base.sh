@@ -40,8 +40,22 @@ if [[ ! -z ${YUM} ]]; then
 elif [[ ! -z ${APT_GET} ]]; then
   echo "Debian/Ubuntu system detected"
   echo "Performing updates and installing prerequisites"
-  sudo apt-get -qq -y update
-  sudo apt-get install -qq -y wget unzip dnsutils ruby rubygems ntp git nodejs-legacy npm nginx
+  sudo apt-get -y update
+#  sudo apt-get install -qq -y wget unzip dnsutils ruby rubygems ntp git nodejs-legacy npm nginx
+  sudo apt-get -y upgrade
+  sudo apt-get install -y wget
+  sudo apt-get install -y unzip
+  sudo apt-get install -y dnsutils
+  sudo apt-get install -y ruby
+  sudo apt-get install -y rubygems
+  sudo apt-get install -y ntp
+  sudo apt-get install -y git
+  sudo apt-get install -y nodejs-legacy
+  sudo apt-get install -y npm
+  sudo apt-get install -y nginx
+  sudo apt-get install -y libtool
+  sudo apt-get install -y libltdl7
+  sudo apt-get install -y libltdl-dev
   sudo systemctl start ntp.service
   sudo systemctl enable ntp.service
   echo "Disable reverse dns lookup in SSH"
